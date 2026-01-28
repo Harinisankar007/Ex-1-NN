@@ -37,7 +37,44 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+
+```
+
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+
+df.isnull().sum()
+
+df.duplicated()
+
+print(df['CreditScore'].describe())
+
+df.info()
+
+df.drop(['Surname','CustomerId','Geography','Gender'],axis=1,inplace=True)
+df
+
+scaler=MinMaxScaler()
+df=pd.DataFrame(scaler.fit_transform(df))
+df
+
+X = df.iloc[:, :-1].values
+print(X)
+
+y = df.iloc[:,-1].values
+print(y)
+
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=25)
+
+print(X_train)
+print(len(X_train))
+
+print(X_test)
+print(len(X_test))
+
+```
 
 
 ## OUTPUT:
